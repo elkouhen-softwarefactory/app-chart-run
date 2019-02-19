@@ -41,5 +41,5 @@ helm plugin install https://github.com/futuresimple/helm-secrets
 
 export IMAGE=${image}
 
-helmfile repos
-helmfile -f ${chart}/${env}/helmfile.yaml
+sh /usr/local/bin/helmfile repos
+sh /usr/local/bin/helmfile -f ${chart}/${env}/helmfile.yaml
