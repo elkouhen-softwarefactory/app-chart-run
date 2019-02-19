@@ -11,15 +11,16 @@ releases:
       - "./values.yaml"
       - image:
           tag: {{ requiredEnv "IMAGE" }}
+        namespace: dev
         ingress:
           annotations:
-            nginx.ingress.kubernetes.io/auth-secret: books-api-{{ .Namespace }}-basicauthsecret
-          secretName: books-api-{{ .Namespace }}-secret
+            nginx.ingress.kubernetes.io/auth-secret: books-api-{{ .namespace }}-basicauthsecret
+          secretName: books-api-{{ .namespace }}-secret
           hosts:
-            - books-api-{{ .Namespace }}.k8.wildwidewest.xyz
+            - books-api-{{ .namespace }}.k8.wildwidewest.xyz
           tls:
             - hosts:
-                - books-api-{{ .Namespace }}.k8.wildwidewest.xyz
-              secretName: books-api-{{ .Namespace }}-secret
+                - books-api-{{ .namespace }}.k8.wildwidewest.xyz
+              secretName: books-api-{{ .namespace }}-secret
     secrets:
       - "./secrets.yaml"
