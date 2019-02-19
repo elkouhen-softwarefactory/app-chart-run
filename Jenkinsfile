@@ -22,7 +22,7 @@ podTemplate(label: 'chart-run-pod', containers: [
                 parameters([
                         string(defaultValue: 'latest', description: 'Docker Image Tag', name: 'image'),
                         choice(choices: charts, description: 'Helm Chart', name: 'chart'),
-                        string(defaultValue: '', description: 'Helm Chart Version', name: 'version'),
+                        string(defaultValue: '', description: 'Helm Chart Version', name: 'version')
                 ])
         ])
 
