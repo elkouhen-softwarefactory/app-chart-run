@@ -43,4 +43,4 @@ helm init --client-only
 helm plugin install https://github.com/futuresimple/helm-secrets
 
 helmfile repos
-helmfile charts -f ${chart}/${env}/helmfile.yaml
+cd ${chart}/${env}; helmfile charts
