@@ -1,0 +1,13 @@
+repositories:
+  - name: softeamouest-softwarefactory
+    url: https://softeamouest-opus.github.io/charts
+
+releases:
+
+  - name: books-api-dev
+    namespace: dev
+    chart: softeamouest-softwarefactory/books-api
+    values:
+      - "./values.yaml"
+    secrets:
+      - "./secrets.yaml"
