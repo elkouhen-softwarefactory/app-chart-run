@@ -23,7 +23,6 @@ podTemplate(label: 'chart-run-pod', containers: [
                         string(defaultValue: 'latest', description: 'Docker Image Tag', name: 'image'),
                         choice(choices: charts, description: 'Helm Chart', name: 'chart'),
                         string(defaultValue: '', description: 'Helm Chart Version', name: 'version'),
-                        choice(choices: envs, description: 'Environment', name: 'env'),
                 ])
         ])
 
@@ -43,15 +42,12 @@ podTemplate(label: 'chart-run-pod', containers: [
 
                         String command = "./deploy.sh -p ${pgp_helm_pwd} -c ${params.chart} "
 
-                        if (params.env != '') {
-                            command += "-e ${params.env} "
-                        }
 
                         if (params.image != '') {
                             command += "-i ${params.image} "
                         }
 
-                        if (params.image != '') {
+                        if (params.version != '') {
                             command += "-v ${params.version} "
                         }
 
