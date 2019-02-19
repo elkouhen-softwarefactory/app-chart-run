@@ -2,9 +2,6 @@
 
 while getopts "e:c:i:p:v:" arg; do
   case $arg in
-    e)
-      env=$OPTARG
-      ;;
     c)
       chart=$OPTARG
       ;;
@@ -19,8 +16,6 @@ while getopts "e:c:i:p:v:" arg; do
       ;;
   esac
 done
-
-[ -z "$env" ] && env="prod"
 
 [ -z "$version" ] || options="$options --version=${version} "
 
@@ -42,7 +37,7 @@ helmfile -v
 helm init --client-only
 helm plugin install https://github.com/futuresimple/helm-secrets
 
-cd ${chart}/${env}
+cd ${chart}
 
 helmfile repos
 helmfile charts
