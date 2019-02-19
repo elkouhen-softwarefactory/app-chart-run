@@ -34,32 +34,12 @@ gpg --batch --yes --passphrase-file key.txt --pinentry-mode=loopback -s dummy.tx
 
 helm init --client-only
 helm plugin install https://github.com/futuresimple/helm-secrets
-helm repo add softeamouest-opus-charts https://softeamouest-opus.github.io/charts
-
-application="helm"
-
-[ -z "$env" ] && release="${chart}" || release="${chart}-${env}"
 
 [ -z "$env" ] && env="prod"
 
-options="--namespace ${env} "
-
 [ -z "$version" ] || options="$options --version=${version} "
 
-[ -z "$image" ] || options="$options --set-string image.tag=${image} "
+export IMAGE=${image}
 
-[ -e ${chart}/${env}/secrets.yaml ] && options="$options --values ${chart}/${env}/secrets.yaml "
-
-[ -e ${chart}/${env}/secrets.yaml ] && application="$application secrets"
-
-[ -e ${chart}/${env}/values.yaml ] && options="$options --values ${chart}/${env}/values.yaml "
-
-nbRelease=`helm list --namespace ${env} | grep ^${release} | wc -l`
-
-if [ "$nbRelease" = "0" ]; then
-   ${application} install --name ${release} ${options} softeamouest-opus-charts/${chart};
-fi
-
-if [ "$nbRelease" = "1" ]; then
-   ${application} upgrade ${release} softeamouest-opus-charts/${chart} ${options};
-fi
+helmfile repos
+helmfile -f ${chart}/${env}/helmfile.yaml

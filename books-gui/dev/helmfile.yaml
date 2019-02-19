@@ -9,3 +9,5 @@ releases:
     chart: softeamouest-softwarefactory/books-gui
     values:
       - "./values.yaml"
+      - image:
+          tag: {{ requiredEnv "IMAGE" }}
