@@ -20,26 +20,27 @@ while getopts "e:c:i:p:v:" arg; do
   esac
 done
 
-mkdir ~/.gnupg
-chmod 700 ~/.gnupg
-
-gpg --version
-sops --version
-helm version
-
-echo ${password} | gpg2 --batch --import secret.asc
-echo ${password} > key.txt
-touch dummy.txt
-gpg --batch --yes --passphrase-file key.txt --pinentry-mode=loopback -s dummy.txt # sign dummy file to unlock agent
-
-helm init --client-only
-helm plugin install https://github.com/futuresimple/helm-secrets
-
 [ -z "$env" ] && env="prod"
 
 [ -z "$version" ] || options="$options --version=${version} "
 
 export IMAGE=${image}
 
+mkdir ~/.gnupg
+chmod 700 ~/.gnupg
+
+echo ${password} | gpg2 --batch --import secret.asc
+echo ${password} > key.txt
+touch dummy.txt
+gpg --batch --yes --passphrase-file key.txt --pinentry-mode=loopback -s dummy.txt # sign dummy file to unlock agent
+
+gpg --version
+sops --version
+helm version
+helmfile -v
+
+helm init --client-only
+helm plugin install https://github.com/futuresimple/helm-secrets
+
 helmfile repos
-helmfile -f ${chart}/${env}/helmfile.yaml
+helmfile charts -f ${chart}/${env}/helmfile.yaml
