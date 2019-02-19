@@ -14,13 +14,13 @@ releases:
         namespace: dev
         ingress:
           annotations:
-            nginx.ingress.kubernetes.io/auth-secret: books-api-{{ .Namespace }}-basicauthsecret
-          secretName: books-api-{{ .Namespace }}-secret
+            nginx.ingress.kubernetes.io/auth-secret: books-api-dev-basicauthsecret
+          secretName: books-api-dev-secret
           hosts:
-            - books-api-{{ .Namespace }}.k8.wildwidewest.xyz
+            - books-api-dev.k8.wildwidewest.xyz
           tls:
             - hosts:
-                - books-api-{{ .Namespace }}.k8.wildwidewest.xyz
-              secretName: books-api-{{ .Namespace }}-secret
+                - books-api-dev.k8.wildwidewest.xyz
+              secretName: books-api-dev-secret
     secrets:
       - "./secrets.yaml"
