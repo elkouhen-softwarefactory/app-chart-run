@@ -9,5 +9,7 @@ releases:
     chart: softeamouest-softwarefactory/books-api
     values:
       - "./values.yaml"
+      - image:
+          tag: {{ requiredEnv "IMAGE" }}
     secrets:
       - "./secrets.yaml"
