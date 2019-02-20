@@ -4,7 +4,7 @@ repositories:
 
 releases:
 
-  - name: books-gui-dev
+  - name: books-gui-oidc
     namespace: dev
     chart: softeamouest-softwarefactory/books-gui
     values:
