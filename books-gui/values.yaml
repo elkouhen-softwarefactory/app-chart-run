@@ -1,11 +1,11 @@
 ingress:
   enabled: true
   annotations:
-    nginx.ingress.kubernetes.io/auth-secret: books-api-dev-basicauthsecret
+    nginx.ingress.kubernetes.io/auth-secret: books-api-oidc-basicauthsecret
   hosts:
-    - books-gui-dev.k8.wildwidewest.xyz
-  secretName: books-gui-dev-secret
+    - books-gui-oidc.k8.wildwidewest.xyz
+  secretName: books-gui-oidc-secret
   tls:
     - hosts:
-        - books-gui-dev.k8.wildwidewest.xyz
-      secretName: books-gui-dev-secret
+        - books-gui-oidc.k8.wildwidewest.xyz
+      secretName: books-gui-oidc-secret

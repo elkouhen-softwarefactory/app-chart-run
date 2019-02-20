@@ -4,23 +4,23 @@ repositories:
 
 releases:
 
-  - name: books-api-dev
-    namespace: dev
+  - name: books-api-oidc
+    namespace: oidc
     chart: softeamouest-softwarefactory/books-api
     values:
       - "./values.yaml"
       - image:
           tag: {{ requiredEnv "IMAGE" }}
-        namespace: dev
+        namespace: oidc
         ingress:
           annotations:
-            nginx.ingress.kubernetes.io/auth-secret: books-api-dev-basicauthsecret
-          secretName: books-api-dev-secret
+            nginx.ingress.kubernetes.io/auth-secret: books-api-oidc-basicauthsecret
+          secretName: books-api-oidc-secret
           hosts:
-            - books-api-dev.k8.wildwidewest.xyz
+            - books-api-oidc.k8.wildwidewest.xyz
           tls:
             - hosts:
-                - books-api-dev.k8.wildwidewest.xyz
-              secretName: books-api-dev-secret
+                - books-api-oidc.k8.wildwidewest.xyz
+              secretName: books-api-oidc-secret
     secrets:
       - "./secrets.yaml"
