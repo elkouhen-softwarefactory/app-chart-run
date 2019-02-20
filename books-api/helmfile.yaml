@@ -5,7 +5,7 @@ repositories:
 releases:
 
   - name: books-api-oidc
-    namespace: oidc
+    namespace: dev
     chart: softeamouest-softwarefactory/books-api
     values:
       - "./values.yaml"
