@@ -6,10 +6,10 @@ ingress:
     nginx.ingress.kubernetes.io/auth-secret: books-api-prod-basicauthsecret
   secretName: books-api-prod-secret
   hosts:
-  - books-api.k8.wildwidewest.xyz
+  - books-k8.ddns.net
   tls:
   - hosts:
-    - books-api.k8.wildwidewest.xyz
+    - books-k8.ddns.net
     secretName: books-api-prod-secret
 
 h2:
