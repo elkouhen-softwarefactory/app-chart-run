@@ -1,12 +1,12 @@
 repositories:
-  - name: softeamouest-softwarefactory
-    url: https://softeamouest-opus.github.io/charts
+  - name: elkouhen-charts
+    url: https://elkouhen.github.io/charts
 
 releases:
 
   - name: books-api-prod
     namespace: prod
-    chart: softeamouest-softwarefactory/books-api
+    chart: elkouhen/books-api
     values:
       - "./values.yaml"
       - image:
