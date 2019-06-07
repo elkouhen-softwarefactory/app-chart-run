@@ -1,3 +1,6 @@
+auth:
+  htpassword: YWRtaW46JGFwcjEkRHBnby5aaDYkTXpRTHBvQkVBSW0yamlwNzlvby56MQ==
+
 ingress:
   annotations:
     nginx.ingress.kubernetes.io/auth-secret: books-api-prod-basicauthsecret
