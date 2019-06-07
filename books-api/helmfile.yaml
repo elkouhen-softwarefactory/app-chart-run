@@ -10,5 +10,5 @@ releases:
     values:
       - "./values.yaml"
       - image:
-          repository: elkouhen-charts/books-api
+          repository: elkouhen/books-api
           tag: {{ requiredEnv "IMAGE" }}
