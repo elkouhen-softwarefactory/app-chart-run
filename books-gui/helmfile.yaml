@@ -6,6 +6,6 @@ releases:
 
   - name: books-gui-prod
     namespace: prod
-    chart: elkouhen/books-gui
+    chart: elkouhen-charts/books-gui
     values:
       - "./values.yaml"
