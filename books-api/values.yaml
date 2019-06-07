@@ -2,12 +2,7 @@ auth:
   htpassword: YWRtaW46JGFwcjEkRHBnby5aaDYkTXpRTHBvQkVBSW0yamlwNzlvby56MQ==
 
 ingress:
-  annotations:
-    nginx.ingress.kubernetes.io/auth-secret: books-api-prod-basicauthsecret
-    kubernetes.io/tls-acme: "false"
-  hosts:
-  - books-k8.ddns.net
-  tls: []
+  enabled: false
 
 h2:
   enabled: true
