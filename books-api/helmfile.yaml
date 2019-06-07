@@ -6,7 +6,7 @@ releases:
 
   - name: books-api-prod
     namespace: prod
-    chart: elkouhen/books-api
+    chart: elkouhen-charts/books-api
     values:
       - "./values.yaml"
       - image:
