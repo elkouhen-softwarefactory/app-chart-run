@@ -4,13 +4,9 @@ auth:
 ingress:
   annotations:
     nginx.ingress.kubernetes.io/auth-secret: books-api-prod-basicauthsecret
-  secretName: books-api-prod-secret
+    kubernetes.io/tls-acme: "false"
   hosts:
   - books-k8.ddns.net
-  tls:
-  - hosts:
-    - books-k8.ddns.net
-    secretName: books-api-prod-secret
 
 h2:
   enabled: true
