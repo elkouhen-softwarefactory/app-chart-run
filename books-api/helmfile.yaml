@@ -1,6 +1,6 @@
 repositories:
   - name: elkouhen
-    url: https://elkouhen.github.io/charts/bin
+    url: https://elkouhen.github.io/charts/
 
 releases:
 
