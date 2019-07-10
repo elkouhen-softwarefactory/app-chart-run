@@ -15,3 +15,5 @@ releases:
         namespace: dev
         ingress:
           enabled: false
+        service:
+          type: LoadBalancer
