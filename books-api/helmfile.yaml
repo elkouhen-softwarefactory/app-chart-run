@@ -13,14 +13,4 @@ releases:
           tag: {{ requiredEnv "IMAGE" }}
         namespace: dev
         ingress:
-          annotations:
-            nginx.ingress.kubernetes.io/auth-secret: books-api-dev-basicauthsecret
-          secretName: books-api-dev-secret
-          hosts:
-            - books-api-dev.k8.wildwidewest.xyz
-          tls:
-            - hosts:
-                - books-api-dev.k8.wildwidewest.xyz
-              secretName: books-api-dev-secret
-    secrets:
-      - "./secrets.yaml"
+          enabled: false
