@@ -21,7 +21,7 @@ releases:
             kubernetes.io/tls-acme: "true"
           hosts:
             - books-api-dev.melkouhen.net
-              secretName: books-api-secret
+          secretName: books-api-secret
           tls:
             - hosts:
               - books-api-dev.melkouhen.net
