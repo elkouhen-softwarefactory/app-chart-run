@@ -1,6 +1,6 @@
 repositories:
-  - name: softeamouest-softwarefactory
-    url: https://softeamouest-opus.github.io/charts
+  - name: elkouhen
+    url: https://elkouhen.github.io/charts/bin
 
 releases:
 
