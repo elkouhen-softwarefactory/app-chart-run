@@ -6,7 +6,7 @@ releases:
 
   - name: books-api-dev
     namespace: dev
-    chart: softeamouest-softwarefactory/books-api
+    chart: elkouhen/books-api
     values:
       - "./values.yaml"
       - image:
