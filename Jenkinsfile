@@ -29,5 +29,32 @@ podTemplate(label: 'chart-run-pod', containers: [
         stage('CHECKOUT') {
             checkout scm;
         }
+
+        container('helm') {
+
+            stage('DEPLOY') {
+
+                /* withCredentials([string(credentialsId: 'pgp_helm_pwd', variable: 'pgp_helm_pwd')]) {
+
+                    configFileProvider([configFile(fileId: 'pgp-helm', targetLocation: "secret.asc")
+
+                    ]) { */
+
+                        String command = "./deploy.sh -c ${params.chart} "
+
+
+                        if (params.image != '') {
+                            command += "-i ${params.image} "
+                        }
+
+                        if (params.version != '') {
+                            command += "-v ${params.version} "
+                        }
+
+                        sh "${command}"
+                   /* }
+                } */
+            }
+        }
     }
 }
