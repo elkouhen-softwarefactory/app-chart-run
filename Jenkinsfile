@@ -34,13 +34,14 @@ podTemplate(label: 'chart-run-pod', containers: [
 
             stage('DEPLOY') {
 
-                 withCredentials([string(credentialsId: 'pgp_helm_pwd', variable: 'pgp_helm_pwd')]) {
+                withCredentials([string(credentialsId: 'pgp_helm_pwd', variable: 'pgp_helm_pwd')]) {
 
                     configFileProvider([configFile(fileId: 'pgp-helm', targetLocation: "secret.asc")
 
-                    ]) { 
+                    ]) {
 
-                        String command = "./deploy.sh -c ${params.chart} "
+                        String command = "./deploy.sh -p ${pgp_helm_pwd} -c ${params.chart} "
+
 
                         if (params.image != '') {
                             command += "-i ${params.image} "
@@ -52,7 +53,7 @@ podTemplate(label: 'chart-run-pod', containers: [
 
                         sh "${command}"
                     }
-                } 
+                }
             }
         }
     }
