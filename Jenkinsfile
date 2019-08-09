@@ -42,7 +42,6 @@ podTemplate(label: 'chart-run-pod', containers: [
 
                         String command = "./deploy.sh -p ${pgp_helm_pwd} -c ${params.chart} "
 
-
                         if (params.image != '') {
                             command += "-i ${params.image} "
                         }

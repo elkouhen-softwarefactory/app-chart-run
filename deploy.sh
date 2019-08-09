@@ -21,21 +21,21 @@ done
 
 export IMAGE=${image}
 
-#mkdir ~/.gnupg
-#chmod 700 ~/.gnupg
+mkdir ~/.gnupg
+chmod 700 ~/.gnupg
 
-#echo ${password} | gpg2 --batch --import secret.asc
-#echo ${password} > key.txt
-#touch dummy.txt
-#gpg --batch --yes --passphrase-file key.txt --pinentry-mode=loopback -s dummy.txt # sign dummy file to unlock agent
+echo ${password} | gpg2 --batch --import secret.asc
+echo ${password} > key.txt
+touch dummy.txt
+gpg --batch --yes --passphrase-file key.txt --pinentry-mode=loopback -s dummy.txt # sign dummy file to unlock agent
 
-#gpg --version
-#sops --version
-#helm version
-#helmfile -v
+gpg --version
+sops --version
+helm version
+helmfile -v
 
 helm init --client-only
-#helm plugin install https://github.com/futuresimple/helm-secrets
+helm plugin install https://github.com/futuresimple/helm-secrets
 
 cd ${chart}
 
