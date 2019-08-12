@@ -26,5 +26,3 @@ releases:
             - hosts:
               - books-api-dev2.melkouhen.net
               secretName: books-api-secret
-        service:
-          type: LoadBalancer
