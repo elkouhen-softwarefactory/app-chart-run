@@ -23,6 +23,7 @@ releases:
             certmanager.k8s.io/issuer: letsencrypt-issuer
             kubernetes.io/tls-acme: "true"
             nginx.ingress.kubernetes.io/auth-secret: books-api-dev3-basicauthsecret
+            nginx.ingress.kubernetes.io/auth-type: basic
           hosts:
             - books-api-dev3.melkouhen.net
           secretName: books-api-dev3-secret
