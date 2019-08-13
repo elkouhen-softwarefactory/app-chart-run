@@ -4,8 +4,8 @@ repositories:
 
 releases:
 
-  - name: books-api-dev
-    namespace: dev
+  - name: books-api-dev3
+    namespace: dev3
     chart: elkouhen-charts/books-api
     values:
       - "./values.yaml"
@@ -22,14 +22,14 @@ releases:
             kubernetes.io/ingress.class: nginx
             certmanager.k8s.io/issuer: letsencrypt-issuer
             kubernetes.io/tls-acme: "true"
-            nginx.ingress.kubernetes.io/auth-secret: books-api-dev-basicauthsecret
+            nginx.ingress.kubernetes.io/auth-secret: books-api-dev3-basicauthsecret
           hosts:
-            - books-api-dev.melkouhen.net
-          secretName: books-api-dev-secret
+            - books-api-dev3.melkouhen.net
+          secretName: books-api-dev3-secret
           tls:
             - hosts:
-                - books-api-dev.melkouhen.net
-              secretName: books-api-dev-secret
+                - books-api-dev3.melkouhen.net
+              secretName: books-api-dev3-secret
 
         h2:
           enabled: false
