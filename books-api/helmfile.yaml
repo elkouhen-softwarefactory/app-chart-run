@@ -14,7 +14,7 @@ releases:
       - image:
           repository: elkouhen/books-api
           tag: {{ requiredEnv "IMAGE" }}
-          
+
         ingress:
           enabled: true
           annotations:
