@@ -2,7 +2,16 @@ auth:
   htpassword: YWRtaW46JGFwcjEkRHBnby5aaDYkTXpRTHBvQkVBSW0yamlwNzlvby56MQ==
 
 ingress:
-  enabled: false
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/auth-secret: books-api-dev2-basicauthsecret
+  hosts:
+    - books-api-dev2.melkouhen.net
+  secretName: books-api-dev2-secret
+  tls:
+    - hosts:
+        - books-api-dev2.melkouhen.net
+      secretName: books-api-dev2-secret
 
 h2:
-  enabled: true
+  enabled: false
