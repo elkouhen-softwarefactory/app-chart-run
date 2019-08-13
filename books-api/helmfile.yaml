@@ -9,20 +9,3 @@ releases:
     chart: elkouhen/books-api
     values:
       - "./values.yaml"
-      - image:
-          repository: elkouhen/books-api
-          tag: {{ requiredEnv "IMAGE" }}
-        namespace: dev2
-        ingress:
-          enabled: true
-          annotations:
-            kubernetes.io/ingress.class: nginx
-            certmanager.k8s.io/issuer: letsencrypt-issuer
-            kubernetes.io/tls-acme: "true"
-          hosts:
-            - books-api-dev2.melkouhen.net
-          secretName: books-api-secret
-          tls:
-            - hosts:
-              - books-api-dev2.melkouhen.net
-              secretName: books-api-secret

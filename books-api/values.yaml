@@ -1,2 +1,11 @@
 h2:
   enabled: false
+
+image:
+  repository: elkouhen/books-api
+  tag: latest
+
+namespace: dev2
+
+ingress:
+  enabled: false
