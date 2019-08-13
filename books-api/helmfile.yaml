@@ -7,13 +7,14 @@ releases:
   - name: books-api-dev3
     namespace: dev3
     chart: elkouhen-charts/books-api
+    secrets:
+      - "./secrets.yaml"
     values:
       - "./values.yaml"
       - image:
           repository: elkouhen/books-api
           tag: {{ requiredEnv "IMAGE" }}
-
-
+          
         ingress:
           enabled: true
           annotations:
