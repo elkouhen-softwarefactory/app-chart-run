@@ -4,11 +4,32 @@ repositories:
 
 releases:
 
-  - name: books-api-prod
-    namespace: prod
+  - name: books-api-dev
+    namespace: dev
     chart: elkouhen-charts/books-api
     values:
       - "./values.yaml"
       - image:
           repository: elkouhen/books-api
           tag: {{ requiredEnv "IMAGE" }}
+        auth:
+          enabled: true
+          htpassword: YWRtaW46JGFwcjEkRHBnby5aaDYkTXpRTHBvQkVBSW0yamlwNzlvby56MQ==
+
+        ingress:
+          enabled: true
+          annotations:
+            kubernetes.io/ingress.class: nginx
+            certmanager.k8s.io/issuer: letsencrypt-issuer
+            kubernetes.io/tls-acme: "true"
+            nginx.ingress.kubernetes.io/auth-secret: books-api-dev-basicauthsecret
+          hosts:
+            - books-api-dev.melkouhen.net
+          secretName: books-api-dev-secret
+          tls:
+            - hosts:
+                - books-api-dev.melkouhen.net
+              secretName: books-api-dev-secret
+
+        h2:
+          enabled: false
