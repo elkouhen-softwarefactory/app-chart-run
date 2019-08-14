@@ -13,6 +13,8 @@ releases:
           repository: elkouhen/books-api
           tag: {{ requiredEnv "IMAGE" }}
         namespace: int
+	auth:
+	  enabled: false
         ingress:
           enabled: true
           annotations:
